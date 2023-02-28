@@ -1,0 +1,11 @@
+image: ubuntu/20.04
+sources:
+    - https://git.sr.ht/~jordanreger/HelloGlass
+secrets:
+    - c7771c68-4b15-43a2-945b-a544bd48c3a6
+tasks:
+    - mirror-to-github: |
+        cd HelloGlass
+        git remote add github git@github.com:jordanreger/HelloGlass.git
+        ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+        git push github main
